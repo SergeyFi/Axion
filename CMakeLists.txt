@@ -8,11 +8,16 @@ find_package(glfw3 REQUIRED)
 find_package(glm REQUIRED)
 find_package(Vulkan REQUIRED)
 
-add_executable(Axion src/main.cpp
-        src/window.h
+# make static lib
+add_library(AxionEngine STATIC
         src/window.cpp
         src/App.cpp
-        src/App.h)
+)
+
+# public headers
+target_include_directories(AxionEngine PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
 
 # link libs
-target_link_libraries(Axion PRIVATE glfw glm::glm Vulkan::Vulkan)
+target_link_libraries(AxionEngine PRIVATE glfw glm::glm Vulkan::Vulkan)
