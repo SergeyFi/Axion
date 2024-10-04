@@ -10,14 +10,20 @@ find_package(Vulkan REQUIRED)
 
 # make static lib
 add_library(AxionEngine STATIC
-        src/window.cpp
-        src/App.cpp
+        src/Public/Axion/window.cpp
+        src/Public/Axion/App.cpp
 )
 
 # public headers
 target_include_directories(AxionEngine PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/public
 )
+
+# private headers
+target_include_directories(AxionEngine PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/private
+)
+
 
 # link libs
 target_link_libraries(AxionEngine PRIVATE glfw glm::glm Vulkan::Vulkan)
