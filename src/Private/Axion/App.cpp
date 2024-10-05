@@ -1,7 +1,7 @@
-#include "App.h"
+#include "Axion/App.h"
 
 
-void AE::App::run()
+void AE::App::Run()
 {
     while (!lveWindow.ShouldClose())
     {

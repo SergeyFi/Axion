@@ -6,7 +6,7 @@ namespace AE
     class App
     {
     public:
-        void run();
+        void Run();
     private:
         AE::Window lveWindow{800, 600, "Axion"};
     };
