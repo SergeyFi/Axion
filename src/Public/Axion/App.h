@@ -1,13 +1,16 @@
 #pragma once
-#include "window.h"
+#include <memory>
 
 namespace AE
 {
     class App
     {
     public:
+        App();
+        ~App();
         void Run();
     private:
-        AE::Window lveWindow{800, 600, "Axion"};
+        struct AppImpl;
+        std::unique_ptr<AppImpl> impl;
     };
 }

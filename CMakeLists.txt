@@ -8,6 +8,9 @@ find_package(glfw3 REQUIRED)
 find_package(glm REQUIRED)
 find_package(Vulkan REQUIRED)
 
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src/Public)
+
 # make static lib
 add_library(AxionEngine STATIC
         src/Private/Axion/App.cpp
@@ -15,8 +18,12 @@ add_library(AxionEngine STATIC
 )
 
 # public headers
-target_include_directories(AxionEngine PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/Public
+target_include_directories(AxionEngine
+        PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src/Public>
+        $<INSTALL_INTERFACE:include>
+        PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/Private
 )
 
 # link libs
