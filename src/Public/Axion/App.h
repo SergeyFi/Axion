@@ -3,6 +3,8 @@
 
 namespace AE
 {
+    class Window;
+
     class App
     {
     public:
@@ -10,7 +12,6 @@ namespace AE
         ~App();
         void Run();
     private:
-        struct AppImpl;
-        std::unique_ptr<AppImpl> impl;
+        std::unique_ptr<Window> window;
     };
 }
