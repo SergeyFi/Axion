@@ -1,11 +1,11 @@
-#include "window.h"
+#include "Axion/Window.h"
 
 AE::Window::Window(int w, int h, std::string name) : width(w), high(h), windowName(std::move(name))
 {
-    initWindow();
+    InitWindow();
 }
 
-void AE::Window::initWindow()
+void AE::Window::InitWindow()
 {
     glfwInit();
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);

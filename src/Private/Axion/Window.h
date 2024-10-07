@@ -16,7 +16,7 @@ namespace AE
         bool ShouldClose();
 
     private:
-        void initWindow();
+        void InitWindow();
 
         const int width;
         const int high;
